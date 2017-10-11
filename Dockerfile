@@ -4,4 +4,5 @@ RUN yaourt -S wget --noconfirm && yaourt -S git --noconfirm && yaourt -S zsh --n
 	&& yaourt -S emacs --noconfirm \
 	&& chsh -s /bin/zsh
 ADD emacs /emacs
-RUN rm -rf /root/.emacs && cp /emacs /root/.emacs
+RUN rm -rf /root/.emacs && cp /emacs /root/.emacs && echo "zh_CN.UTF-8 UTF-8" > /etc/locale.gen \
+	&& echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && locale-gen
