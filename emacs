@@ -1,13 +1,13 @@
 ;; author: yujmo
 ;; e-mail: yujmo94@gmail.com
 
-
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (package-initialize)
+
+;;------语言环境字符集设置------------
 
 (set-language-environment 'Chinese-GB)
 (set-keyboard-coding-system 'utf-8)
@@ -21,10 +21,6 @@
 (setq-default pathname-coding-system 'utf-8)
 (set-file-name-coding-system 'utf-8)
 (setq ansi-color-for-comint-mode t)
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq-default TeX-master nil)
-;;处理shell-mode乱码,好像没作用
 
 ;;------语言环境字符集设置结束------------
 
@@ -203,7 +199,7 @@
 (put 'narrow-to-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
-(put 'LaTeX-hide-environment 'disabled nil)
+;;(put 'LaTeX-hide-environment 'disabled nil)
 ;;把这些缺省禁用的功能打开。
 
 ;;允许emacs和外部其他程序的粘贴
@@ -463,19 +459,6 @@
 ;; C-c @ C-h hide block
 ;; C-c @ C-c toggle hide/show
 
-;;AucTeX配置
-(load "auctex.el" nil t t)
-(load "preview-latex.el" nil t t)
-(setq Tex-auto-save t)
-(setq Tex-parse-self t)
-(setq-default TeX-master nil)
-
-(add-hook 'plain-Tex-mode-hook
-	  (lambda () (set (make-variable-buffer-local 'Tex-electric-math)
-			  (cons "$" "$"))))
-(add-hook 'LaTex-mode-hook
-	  (lambda () (set (make-variable-buffer-local 'Tex-electric-math)
-			  (cons "\\(" "\\)"))))
 ;;自动补全括号
 (defun my-c-mode-auto-pair ()
   (interactive)
